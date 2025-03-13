@@ -1,17 +1,11 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <main>
-      <div className="text-5xl">
-        <h1 className="font-light">Saatuuuuuu</h1>
-        <h1 className="font-medium">Saatuuuuuu</h1>
-        <h1 className="font-bold">Saatuuuuuu</h1>
-      </div>
-      <div className="text-5xl font-[Srisakdi]">
-        <h1 className="font-light">Saatuuuuuu</h1>
-        <h1 className="font-medium">Saatuuuuuu</h1>
-        <h1 className="font-bold">Saatuuuuuu</h1>
+      <div className="flex items-center justify-center h-screen">
+        <h1 className="text-9xl font-regular text-white drop-shadow-lg -translate-y-10">Saatu</h1>
       </div>
     </main>
   );
