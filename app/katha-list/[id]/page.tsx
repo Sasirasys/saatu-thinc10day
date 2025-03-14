@@ -7,7 +7,7 @@ export default async function Page({
 }) {
     const { id } = await params;
     const supabase = await createClient();
-    const { data: katha } = await supabase.from("katha").select().eq('id', id).single();
+    const { data: katha } = await supabase.from("katha").select().eq('katha_id', id).single();
 
     return (
         <div>

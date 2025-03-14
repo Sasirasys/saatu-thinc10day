@@ -1,12 +1,19 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { addUser } from "./addUser"
 
 export default function Page() {
   const [popup, setPopup] = useState(false);
   const { data: session } = useSession();
   const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+      addUser(session);
+    }
+  }, [session]);
 
   function showPop() {
     if (session) return;
