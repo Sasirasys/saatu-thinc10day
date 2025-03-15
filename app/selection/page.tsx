@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -10,6 +11,8 @@ export default function Home() {
   return (
     
     <main>
+      <Navbar />
+
       <div className="relative flex items-center justify-center h-screen"> 
         <div className="absolute z-0 w-90 h-90 border-6 border-white-500 rounded-full"
     style={{
