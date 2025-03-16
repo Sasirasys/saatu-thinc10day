@@ -33,6 +33,7 @@ export default function Home() {
 
           return (
             <motion.div
+              suppressHydrationWarning={true}
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 1, 0] }}
