@@ -133,7 +133,7 @@ export default function Home() {
             ease: [0.25, 0.8, 0.25, 1],
           }}
           className="border-amber-600 z-10 text-center content-center font-regular text-white drop-shadow-lg
-          w-[40svw] h-[40svw] max-h-[40svh] max-w-[40svh] 
+          w-[60svw] h-[60svw] max-h-[60svh] max-w-[60svh] 
           text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
           style={{
             textShadow: "4px 4px 20px rgba(0, 0, 0, 1)",
