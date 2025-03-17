@@ -5,23 +5,74 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+const getRandomPosition = () => {
+  const top = Math.random() * 100;
+  const left = Math.random() * 100;
+  return { top, left };
+};
+
+const getRandomSize = () => {
+  const size = Math.random() * 20 + 10;
+  return { width: size, height: size };
+};
+
+const getRandomDelay = () => Math.random() * 2;
+
+
 export default function Home() {
   const [isEnlarged, setIsEnlarged] = useState(false);
+
+  const numberOfStars = 30;
 
   return (
     
     <main>
       <Navbar />
 
-      <div className="relative flex items-center justify-center h-screen"> 
+        {Array.from({ length: numberOfStars }).map((_, index) => {
+          const { top, left } = getRandomPosition();
+          const { width, height } = getRandomSize();
+          const delay = getRandomDelay();
+
+          return (
+            <motion.div
+              suppressHydrationWarning={true}
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{
+                duration: 2,
+                ease: "easeInOut",
+                repeat: Infinity,
+                delay: delay,
+              }}
+              className="absolute"
+              style={{
+                top: `${top}%`,
+                left: `${left}%`,
+                width: `${width}px`,
+                height: `${height}px`,
+              }}
+            >
+              <Image
+                src="/Star_1.png"
+                alt="Star"
+                layout="fill"
+                objectFit="contain"
+              />
+            </motion.div>
+          );
+        })}
+
+      <div className="relative flex items-center justify-center h-screen overflow-hidden"> 
         <div className="absolute z-0 w-90 h-90 border-6 border-white-500 rounded-full"
-    style={{
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      // clipPath: "polygon(50% 50%, 100% 40%, 95% 45%, 95% 55%, 100% 60%, 50% 50%)", 
-    }}
-    ></div>
+          style={{
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            // clipPath: "polygon(50% 50%, 100% 40%, 95% 45%, 95% 55%, 100% 60%, 50% 50%)", 
+          }}
+          ></div>
 
         <div className="absolute z-0 w-25 h-25 -translate-y-28 translate-x-70 group">
         <div className={`relative w-full h-full opacity-50 transition-all duration-300 group-hover:opacity-100 ${

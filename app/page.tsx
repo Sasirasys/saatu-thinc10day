@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const getRandomPosition = () => {
   const top = Math.random() * 100;
@@ -60,7 +61,7 @@ export default function Home() {
             </motion.div>
           );
         })}
-
+        <div className="-translate-y-10">
         <div
           className=" border-amber-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
         w-[60svw] h-[60svw] max-h-[60svh] max-w-[60svh]"
@@ -116,7 +117,7 @@ export default function Home() {
             >
               <Image
                 src="/Saatu_Scroll1_WHITE.svg"
-                alt="Saatu Scroll Logo"
+                alt="Saatu Scroll Logo 2"
                 layout="fill"
                 objectFit="contain"
                 className="absolute translate-y-[70%]"
@@ -133,7 +134,7 @@ export default function Home() {
             duration: 1.5,
             ease: [0.25, 0.8, 0.25, 1],
           }}
-          className="border-amber-600 z-10 text-center content-center font-regular text-white drop-shadow-lg
+          className="z-10 text-center content-center font-regular text-white drop-shadow-lg
           w-[60svw] h-[60svw] max-h-[60svh] max-w-[60svh] 
           text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
           style={{
@@ -142,6 +143,27 @@ export default function Home() {
         >
           Saatu
         </motion.h1>
+
+        </div>
+
+        <Link href="/selection">
+
+          <motion.button
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.2, duration: 0.8, ease: "easeOut" }}
+            className="absolute z-10 bottom-20 left-1/2 -translate-x-1/2 lg:-translate-y-4 bg-[#FFDA60] text-black
+            text-base sm:text-lg md:text-2xl lg:text-3xl py-5 px-10 sm:px-20 rounded-4xl shadow-lg
+            transition-colors duration-400 hover:bg-yellow-500 whitespace-nowrap cursor-pointer"
+          >
+            <div className="transition hover:scale-105">
+              เริ่มค้นหาบทสวด
+            </div>
+          </motion.button>
+
+          
+        </Link>
+        
       </div>
     </main>
   );
