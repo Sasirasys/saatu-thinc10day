@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   return (
@@ -10,20 +11,24 @@ export default function Navbar() {
         
         {/* Logo + "Saatu" */}
         <div className="absolute left-6">
-          <Link href="/" className="flex items-center space-x-1">
-          {/* Logo */}
-            <div className="w-10 h-10 relative">
-                <Image
-                  src="/Star_1.png"
-                  alt="Logo" 
-                  layout="fill"
-                  objectFit="contain"
-                  className="rounded-full"
-                />
-            </div>
+          <Link href="/" className="flex items-center space-x-1 group">
+            {/* Logo */}
+            <motion.div
+              className="w-10 h-10 relative"
+              whileHover={{ rotate: 180 }}
+              transition={{ type: "spring", stiffness: 100 }}
+            >
+              <Image
+                src="/Star_1.png"
+                alt="Logo"
+                layout="fill"
+                objectFit="contain"
+                className="rounded-full group-hover "
+              />
+            </motion.div>
             {/* Text */}
-            <div className="text-white text-xl font-bold">Saatu</div>
-            </Link>
+            <div className="text-white text-xl font-bold hover:opacity-80 transition duration-300">Saatu</div>
+          </Link>
         </div>
 
         {/* Navigation Links (Outside Container) */}
