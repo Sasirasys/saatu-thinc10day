@@ -11,7 +11,7 @@ export default function Page() {
 
   useEffect(() => {
     if (session) {
-      addUser(session.user?.email, session.user?.name);
+      addUser(session.user?.email!, session.user?.name!);
     }
   }, [session]);
   function showPop() {
