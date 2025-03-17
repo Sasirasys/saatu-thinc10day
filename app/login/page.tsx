@@ -27,7 +27,11 @@ export default function Page() {
         <>
           Signed in as {session.user?.email} <br />
           {session.user?.name} <br />
-          <img src={session.user?.image ?? ""} alt="profile image" />
+          <img
+            src={session.user?.image ?? ""}
+            alt="profile image"
+            referrerPolicy="no-referrer"
+          />
           <br />
           <button onClick={() => signOut()}>Sign out</button>
           <br />
