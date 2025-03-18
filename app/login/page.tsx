@@ -1,15 +1,12 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import addUser from "./addUser";
 import { GoogleSigninButton, GoogleSignoutButton } from "./GoogleButton";
 import Navbar from "@/components/Navbar";
 
 export default function Page() {
-  const [popup, setPopup] = useState(false);
-  const { data: session } = useSession();
-  const router = useRouter();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     if (session) {
@@ -18,23 +15,15 @@ export default function Page() {
         .find((row) => row.startsWith("prevEmail"))
         ?.split("=")[1];
       if (session.user?.email != prevEmail) {
-        // reduce user fetch
+        // reduce database fetch
         addUser(session.user?.email!, session.user?.name!);
         document.cookie = `prevEmail=${session.user?.email}; path=/`;
       }
     }
   }, [session]);
-  function showPop() {
-    if (session) return;
-    setPopup(true);
-    setTimeout(() => {
-      setPopup(false);
-    }, 4000);
-  }
   return (
     <div className="pt-24">
-      <Navbar />
-      {session ? (
+      {status == "authenticated" ? (
         <div className="flex flex-col items-center">
           <h1 className="text-3xl">User Profile</h1>
           <img
@@ -48,11 +37,19 @@ export default function Page() {
           <GoogleSignoutButton />
         </div>
       ) : (
-        <div className="flex flex-col items-center">
-          <h1 className="text-3xl">Sign In</h1>
-          <GoogleSigninButton />
-          <br />
-        </div>
+        <>
+          {status == "unauthenticated" ? (
+            <div className="flex flex-col items-center">
+              <h1 className="text-3xl">Sign In</h1>
+              <GoogleSigninButton />
+            </div>
+          ) : (
+            <div className="flex flex-col items-center text-xl">
+              <img src="/Star_1.png" alt="" className="size-14 animate-spin" />
+              Loading...
+            </div>
+          )}
+        </>
       )}
     </div>
   );
