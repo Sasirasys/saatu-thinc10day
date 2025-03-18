@@ -184,17 +184,15 @@ export default function Home() {
         </div>
 
 
-        {hoveredImage && ( // Only render if hoveredImage is not null
+        {hoveredImage && ( 
           <div
-            className="fixed inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 ease-in-out delay-200 pointer-events-none"
-            style={{ opacity: hoveredImage ? 1 : 0 }}
+          className={`fixed inset-0 flex items-center justify-center transition-opacity duration-500 ease-in-out pointer-events-auto ${
+            hoveredImage ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ zIndex: 1000 }}
           >
             <div className="relative w-60 h-60">
-              <Image
-                src={hoveredImage} 
-                alt="hovered-image"
-                layout="fill"
-                objectFit="contain"
+              <Image src={hoveredImage} alt="hovered-image" layout="fill" objectFit="contain"
               />
             </div>
           </div>
