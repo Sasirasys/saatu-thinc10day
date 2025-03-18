@@ -89,7 +89,7 @@ export default function Home() {
               height: `${star.height}px`,
             }}
           >
-            <Image src="/Star_1.png" alt="Star" layout="fill" objectFit="contain" />
+            <Image src="/Star_1.png" alt="Star" fill={true} className="object-contain" />
           </motion.div>
         ))}
 
@@ -111,9 +111,8 @@ export default function Home() {
           <Image
             src="/Select_Wheel.svg"
             alt="Select Wheel"
-            layout="fill"
-            objectFit="contain"
-            className="transform origin-center"
+            fill={true}
+            className="transform origin-center object-contain"
           />
         </div>
       </motion.div>
@@ -137,8 +136,8 @@ export default function Home() {
               <Image
                 src={item.src}
                 alt={item.text}
-                layout="fill"
-                objectFit="contain"
+                fill={true}
+                className="object-contain"
               />
             </div>
             <div className="mt-2 text-white text-lg text-center">
@@ -159,7 +158,7 @@ export default function Home() {
       >
         
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-            <Image src="/education1.png" alt="education" layout="fill" objectFit="contain" />
+            <Image src="/education1.png" alt="education" fill={true} className="object-contain" />
           </div>
 
         <div className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100">
@@ -180,7 +179,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.2 }} // Adjust delay for staggering
       >
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/love-new.png" alt="love" layout="fill" objectFit="contain" />
+          <Image src="/love-new.png" alt="love" fill={true} className="object-contain" />
         </div>
 
         <motion.div
@@ -200,7 +199,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.3 }} // Adjust delay for staggering
       >
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/general.png" alt="general" layout="fill" objectFit="contain" />
+          <Image src="/general.png" alt="general" fill={true} className="object-contain" />
         </div>
 
         <motion.div
@@ -220,7 +219,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.4 }} // Adjust delay for staggering
       >
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/health.png" alt="health" layout="fill" objectFit="contain" />
+          <Image src="/health.png" alt="health" fill={true} className="object-contain" />
         </div>
 
         <motion.div
@@ -240,7 +239,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.5 }} // Adjust delay for staggering
       >
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/luck.png" alt="luck" layout="fill" objectFit="contain" />
+          <Image src="/luck.png" alt="luck" fill={true} className="object-contain" />
         </div>
 
         <motion.div
@@ -260,7 +259,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.6 }} // Adjust delay for staggering
       >
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/career.png" alt="career" layout="fill" objectFit="contain" />
+          <Image src="/career.png" alt="career" fill={true} className="object-contain" />
         </div>
 
         <motion.div
@@ -280,7 +279,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.7 }} // Adjust delay for staggering
       >
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/family.png" alt="family" layout="fill" objectFit="contain" />
+          <Image src="/family.png" alt="family" fill={true} className="object-contain" />
         </div>
 
         <motion.div
@@ -300,7 +299,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.8 }} // Adjust delay for staggering
       >
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/finance.png" alt="finance" layout="fill" objectFit="contain" />
+          <Image src="/finance.png" alt="finance" fill={true} className="object-contain" />
         </div>
 
         <motion.div
@@ -329,8 +328,8 @@ export default function Home() {
                 <Image
                   src={hoveredImage}
                   alt="hovered-image"
-                  layout="fill"
-                  objectFit="contain"
+                  fill={true}
+                  className="object-contain"
                 />
               </div>
             </motion.div>
