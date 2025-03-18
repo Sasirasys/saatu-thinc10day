@@ -68,7 +68,6 @@ export default function Home() {
   return (
     
     <main onMouseMove={handleMouseMove}>
-      <Navbar />
 
         {stars.map((star, index) => (
           <motion.div

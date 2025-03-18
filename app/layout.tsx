@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SessionP from "./SessionP";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Saatu",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <SessionP>
-        <body className="font-[K2d] text-white">{children}</body>
+        <body className="font-[K2d] text-white">
+          <Navbar />
+          {children}
+        </body>
       </SessionP>
     </html>
   );
