@@ -25,13 +25,13 @@ export default async function KathaList() {
         </div>
 
 
-        {kathalist.map((katha) => (
+        {kathalist?.map((katha) => (
           <div key={katha.katha_id} className="w-full max-w-md bg-white shadow-lg rounded-xl p-4 border border-gray-200">
             <h2 className="text-lg font-semibold text-gray-800">{katha.name}</h2>
             <p className="text-sm font-bold text-[#3C278A]">ยอดสาธุ: ๙๙</p>
             <p className="text-sm text-gray-500 mt-1">{katha.description}</p>
             <div className="flex flex-wrap gap-2 mt-2">
-              {katha.tags.map((tag, index) => (
+              {katha.tags.map((tag:string, index:number) => (
                 <span
                   key={index}
                   className="bg-[#08113F] text-white px-1 py-1 rounded-full text-xs"
