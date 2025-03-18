@@ -27,6 +27,28 @@ export default function Home() {
 
   const numberOfStars = 30;
 
+  const sideImages = [
+    { src: "/aries.png", alt: "Image 1" },
+    { src: "/cancer.png", alt: "Image 2" },
+    { src: "/gemini.png", alt: "Image 3" },
+    { src: "/leo.png", alt: "Image 4" },
+    { src: "/libra.png", alt: "Image 5" },
+    { src: "/scorpio.png", alt: "Image 6" },
+    { src: "/capricorn.png", alt: "Image 7" },
+    { src: "/pisces.png", alt: "Image 8" },
+  ];
+
+  const manualPositions = [
+    { top: 15, left: 7 }, // Aries (Left)
+    { top: 35, left: 12 }, // Cancer (Left)
+    { top: 55, left: 4 },  // Gemini (Left)
+    { top: 75, left: 11 }, // Leo (Left)
+    { top: 15, left: 90 }, // Libra (Right)
+    { top: 35, left: 82 }, // Scorpio (Right)
+    { top: 55, left: 88 }, // Capricorn (Right)
+    { top: 75, left: 81 }, // Pisces (Right)
+  ];
+
   const iconVariants = {
     hidden: { opacity: 0, y: 10 }, // Start hidden and slightly below
     visible: { opacity: 1, y: 0 }, // Animate to fully visible and original position
@@ -92,6 +114,43 @@ export default function Home() {
             <Image src="/Star_1.png" alt="Star" layout="fill" objectFit="contain" />
           </motion.div>
         ))}
+
+        {sideImages.map((image, index) => {
+          const { top, left } = manualPositions[index];
+
+          return (
+            <motion.div key={index} initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration:2, delay:2}}>
+            <motion.div
+              key={index}
+              initial={{ y: 0, opacity: 0.5 }}
+              animate={{ y: [0, -10, 0] }} // Subtle up-and-down animation
+              transition={{
+                duration: 3,
+                ease: "easeInOut",
+                repeat: Infinity,
+                delay: index * 0.5, // Stagger the animation for each image
+              }}
+              className="absolute opacity-50 xl:block hidden"
+              style={{
+                top: `${top}%`, // Randomized vertical positioning
+                left: `${left}%`, // Randomized horizontal positioning
+                width: "100px", // Adjust size as needed
+                height: "100px", // Adjust size as needed
+                transform: index < 4 ? "translateX(-50%)" : "translateX(50%)", // Center images on the sides
+                opacity: 0.5,
+                filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))",
+              }}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                layout="fill"
+                objectFit="contain"
+              />
+            </motion.div>
+            </motion.div>
+          );
+        })}
 
       <div className="relative flex items-center justify-center h-screen overflow-hidden"> 
 
