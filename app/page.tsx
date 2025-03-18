@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <main>
-      <Navbar />
 
       <div className="relative flex items-center justify-center h-screen overflow-hidden">
         {/* Scatter stars in the background */}
