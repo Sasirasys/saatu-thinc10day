@@ -160,7 +160,6 @@ export default function Home() {
             </div>
           </motion.button>
 
-          
         </Link>
         
       </div>
