@@ -235,7 +235,7 @@ export default function Home() {
         >
           <a className="block w-full h-full relative">
             <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/education1.png" alt="กลุ่มดาวการศึกษา" fill={true} className="object-contain" aria-label="กลุ่มดาวการศึกษา" />
+                <Image src="/education1.png" alt="ed" fill={true} className="object-contain" />
               </div>
 
             <div className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100">
@@ -256,15 +256,22 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 0.5, delay: 0.2 }} // Adjust delay for staggering
       >
-        <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-          <Image src="/love-new.png" alt="love" fill={true} className="object-contain" />
-        </div>
-
-        <motion.div
-          className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all group-hover:scale-110 duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100"
+        <Link href={{
+          pathname: "/result",
+          query: { tag: "ความรัก" }
+        }}
+        passHref
+        legacyBehavior
         >
-          กลุ่มดาวความรัก
-        </motion.div>
+          <a className="block w-full h-full relative">
+            <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
+              <Image src="/love-new.png" alt="love" fill={true} className="object-contain" />
+            </div>
+            <motion.div className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all group-hover:scale-110 duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100">
+              กลุ่มดาวความรัก
+            </motion.div>
+          </a>
+        </Link>
       </motion.div>
 
       <motion.div
