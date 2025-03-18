@@ -1,9 +1,9 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
-import addUser from "./addUser";
+import { addUser } from "./loginFunctions";
 import { GoogleSigninButton, GoogleSignoutButton } from "./GoogleButton";
-import Navbar from "@/components/Navbar";
+import MyKathaList from "./MyKathaList";
 
 export default function Page() {
   const { data: session, status } = useSession();
@@ -22,7 +22,10 @@ export default function Page() {
     }
   }, [session]);
   return (
-    <div className="pt-24">
+    <div
+      className="pt-24 h-svh
+    overflow-y-auto flex flex-col no-scrollbar"
+    >
       {status == "authenticated" ? (
         <div className="flex flex-col items-center">
           <h1 className="text-3xl">User Profile</h1>
@@ -35,6 +38,7 @@ export default function Page() {
           <div className="text-lg ">{session.user?.name}</div>
           <div className="text-gray-300">{session.user?.email}</div>
           <GoogleSignoutButton />
+          <MyKathaList email={session.user?.email ?? ""} />
         </div>
       ) : (
         <>

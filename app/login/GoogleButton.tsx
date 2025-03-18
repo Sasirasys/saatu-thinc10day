@@ -4,7 +4,7 @@ import { signIn, signOut } from "next-auth/react";
 export const GoogleSignoutButton = () => {
   return (
     <button
-      className="bg-white text-black rounded-lg px-5 py-1.5 my-3 content-center
+      className="bg-white text-black rounded-xl px-5 py-1.5 my-3 content-center
     flex flex-row gap-2 focus:bg-gray-300"
       onClick={() => signOut()}
     >
@@ -17,7 +17,7 @@ export const GoogleSignoutButton = () => {
 export const GoogleSigninButton = () => {
   return (
     <button
-      className="bg-white text-black rounded-lg px-5 py-1.5 my-3 content-center
+      className="bg-white text-black rounded-xl px-5 py-1.5 my-3 content-center
     flex flex-row gap-2 focus:bg-gray-300"
       onClick={() => signIn("google")}
     >
