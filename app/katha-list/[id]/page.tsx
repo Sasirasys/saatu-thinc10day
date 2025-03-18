@@ -1,5 +1,7 @@
 import { createClient } from '@/utils/supabase/server';
 import AudioPlayer from '@/components/AudioPlayer';
+import ScrollHandler from '@/components/ScrollHandler';
+import PlaySoundButton from '@/components/PlaySoundButton'; // Import the new client component
 
 export default async function Page({
   params,
@@ -12,22 +14,46 @@ export default async function Page({
 
   return (
     <main className="overflow-auto">
+      <ScrollHandler allowScroll={true} />
 
       <div
         className="relative w-full min-h-screen bg-[url('/katha-BG.png')] bg-cover bg-top bg-no-repeat overflow-y-auto"
       >
-
         <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 translate-y-60 z-10">
-          <div className="text-8xl text-black font-[Srisakdi] font-bold">{katha.name}</div>
+          <div className="text-8xl text-black font-[Srisakdi] font-bold text-center">{katha.name}</div>
 
           <div className="text-6xl translate-y-10 text-center leading-20 text-black font-bold font-[Srisakdi] mt-5">
             {katha.prayer.replace(/\\n/g, '\n')}
           </div>
 
-          <AudioPlayer />
+          {/* AudioPlayer component */}
+          <div className="flex flex-row items-center gap-10">
+            <PlaySoundButton id={id} />
+            <AudioPlayer />
+        </div>
+          
+
+          {/* Add katha.description below the AudioPlayer */}
+          <div className="text-5xl translate-y-20 text-center leading-20 text-black font-[Srisakdi] mt-5">
+            {katha.description}
+          </div>
+
+
+          {/* YouTube Embed */}
+          <div className="mt-8 w-full max-w-2xl flex">
+            <iframe
+              width="100%"
+              height="400"
+              src="https://www.youtube.com/embed/fhK1ZcUjhDk"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-lg shadow-lg translate-y-30 mb-10"
+            />
+          </div>
         </div>
 
-        
+        {/* Spacer to ensure the background extends */}
         <div className="h-[200vh] bg-transparent" />
       </div>
     </main>

@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import ScrollHandler from '@/components/ScrollHandler';
 
 const getRandomPosition = () => {
   const top = Math.random() * 100;
@@ -90,6 +91,9 @@ export default function Home() {
   return (
     
     <main onMouseMove={handleMouseMove}>
+
+    <ScrollHandler allowScroll={false} />
+      
 
         {stars.map((star, index) => (
           <motion.div

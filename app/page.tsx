@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import ScrollHandler from '@/components/ScrollHandler';
 
 const getRandomPosition = () => {
   const top = Math.random() * 100;
@@ -23,6 +24,7 @@ export default function Home() {
 
   return (
     <main>
+      <ScrollHandler allowScroll={false} />
 
       <div className="relative flex items-center justify-center h-screen overflow-hidden">
         {/* Scatter stars in the background */}
