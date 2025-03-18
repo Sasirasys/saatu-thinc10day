@@ -54,8 +54,8 @@ export default function Home() {
               <Image
                 src="/Star_1.png"
                 alt="Star"
-                layout="fill"
-                objectFit="contain"
+                fill={true}
+                className="object-contain"
               />
             </motion.div>
           );
@@ -74,8 +74,8 @@ export default function Home() {
             <Image
               src="/Saatu_Scroll1_WHITE.svg"
               alt="Saatu Scroll Logo"
-              layout="fill"
-              objectFit="contain"
+              fill={true}
+              className="object-contain"
             />
           </motion.div>
 
@@ -95,8 +95,8 @@ export default function Home() {
               <Image
                 src="/Saatu_Paper1_WHITE.svg"
                 alt="Saatu Paper"
-                layout="fill"
-                objectFit="contain"
+                fill={true}
+                className="object-contain"
               />
             </motion.div>
           </motion.div>
@@ -117,9 +117,8 @@ export default function Home() {
               <Image
                 src="/Saatu_Scroll1_WHITE.svg"
                 alt="Saatu Scroll Logo 2"
-                layout="fill"
-                objectFit="contain"
-                className="absolute translate-y-[70%]"
+                fill={true}
+                className="absolute translate-y-[70%] object-contain"
               />
             </motion.div>
           </motion.div>
