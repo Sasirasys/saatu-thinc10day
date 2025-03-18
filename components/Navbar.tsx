@@ -22,9 +22,8 @@ export default function Navbar() {
               <Image
                 src="/Star_1.png"
                 alt="Logo"
-                layout="fill"
-                objectFit="contain"
-                className="rounded-full group-hover "
+                fill={true}
+                className="rounded-full group-hover object-contain"
               />
             </motion.div>
             {/* Text */}

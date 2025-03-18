@@ -20,7 +20,7 @@ export default async function KathaList() {
       <div className="flex flex-col items-center pt-60 gap-4 p-4 relative">
         {/* Add icon at the top of the page */}
         <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-20 h-20">
-            <Image src="/education1.png" alt="ed" layout="fill" objectFit="contain"/>
+            <Image src="/education1.png" alt="ed" fill={true} className="object-contain"/>
             <h1 className="text-lg">tag2</h1>
         </div>
 
