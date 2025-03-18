@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import ScrollHandler from '@/components/ScrollHandler';
+import Link from "next/link";
 
 const getRandomPosition = () => {
   const top = Math.random() * 100;
@@ -19,6 +20,12 @@ const getRandomSize = () => {
 
 const getRandomDelay = () => Math.random() * 2;
 
+const TAG_MAPPING: { [key: string]: string } = {
+  education: "การศึกษา",
+  love: "ความรัก",
+  general: "ทั่วไป",
+  // Add other tags as needed
+};
 
 export default function Home() {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null);
@@ -219,15 +226,23 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 1, delay: 0.9 }} // Fade-in duration and delay
       >
-        
-        <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-            <Image src="/education1.png" alt="education" fill={true} className="object-contain" />
-          </div>
+        <Link href={{
+          pathname: "/result",
+          query: { tag: "การศึกษา" }
+        }}
+        passHref
+        legacyBehavior
+        >
+          <a className="block w-full h-full relative">
+            <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
+                <Image src="/education1.png" alt="กลุ่มดาวการศึกษา" fill={true} className="object-contain" aria-label="กลุ่มดาวการศึกษา" />
+              </div>
 
-        <div className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100">
-          กลุ่มดาวการศึกษา
-        </div>
-
+            <div className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100">
+              กลุ่มดาวการศึกษา
+            </div>
+          </a>
+        </Link>
       </motion.div>
     
 
