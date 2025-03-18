@@ -3,6 +3,7 @@ import Image from "next/image";
 import { createClient } from '@/utils/supabase/server';
 import { motion } from "framer-motion";
 import Link from "next/link";
+import AdBanner from "@/components/AdBanner";
 
 export default async function KathaList() {
   const supabase = await createClient();
@@ -64,6 +65,7 @@ export default async function KathaList() {
           </div>
         ))}
       </div>
+      <AdBanner />
     </>
   );
 }

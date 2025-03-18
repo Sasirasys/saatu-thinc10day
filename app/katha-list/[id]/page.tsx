@@ -11,10 +11,12 @@ export default async function Page({
   const { data: katha } = await supabase.from('katha').select().eq('katha_id', id).single();
 
   return (
-    <main className="min-h-screen">
+    <main className="overflow-auto">
+
       <div
-        className="bg-[url('/katha-BG.png')] bg-auto bg-top bg-no-repeat min-h-[100vh] w-full flex justify-center items-start pt-5"
+        className="relative w-full min-h-screen bg-[url('/katha-BG.png')] bg-cover bg-top bg-no-repeat overflow-y-auto"
       >
+
         <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 translate-y-60 z-10">
           <div className="text-8xl text-black font-[Srisakdi] font-bold">{katha.name}</div>
 
@@ -22,13 +24,12 @@ export default async function Page({
             {katha.prayer.replace(/\\n/g, '\n')}
           </div>
 
-          {/* Use the AudioPlayer component without passing audioSrc */}
           <AudioPlayer />
         </div>
-      </div>
 
-      {/* Add this to make the page scrollable */}
-      <div className="h-[100vh] bg-transparent" />
+        
+        <div className="h-[200vh] bg-transparent" />
+      </div>
     </main>
   );
 }
