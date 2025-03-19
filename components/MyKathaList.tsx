@@ -1,5 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { getMyKatha, updateSavedKatha } from "@/utils/loginFunctions";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+const buttonVariants = {
+  hover: {
+    scale: 1.05,
+    boxShadow: "0px 4px 15px rgba(255, 218, 96, 0.4)",
+  },
+  tap: {
+    scale: 0.95,
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
+  },
+};
 
 function MyKathaList({ email }: { email: string }) {
   const [kathaList, setKathaList] = useState<
@@ -104,6 +117,21 @@ function MyKathaList({ email }: { email: string }) {
               </div>
             </div>
           ))}
+          <div className="w-full flex justify-center">
+            <Link href={`/selection`} className="w-full" passHref>
+              {" "}
+              {/* Dynamic route */}
+              <motion.button
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                className="w-full py-1.5 bg-[#FFDA60] hover:bg-yellow-500 text-black text-lg cursor-pointer rounded-xl transition-transform duration-400"
+                aria-label="หาคาถาเพิ่ม" // Accessibility
+              >
+                หาคาถาเพิ่ม
+              </motion.button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
