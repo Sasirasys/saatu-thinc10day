@@ -29,7 +29,7 @@ body::after {
   height: 100%;
   background-attachment: fixed;
   background-size: cover;
-  z-index: -1;
+  z-index: -20;
   animation: gradientTransition 6s ease-in-out infinite;
 }
 

@@ -43,7 +43,7 @@ export default function KathaItem({ katha }: { katha: any }) {
       {/* Animated Button */}
       {/* Improved button with dynamic link */}
       <div className="flex justify-center mt-4">
-        <Link href={`/katha/${katha.slug}`} passHref> {/* Dynamic route */}
+        <Link href={`/katha-list/${katha.katha_id}`} passHref> {/* Dynamic route */}
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
