@@ -1,5 +1,5 @@
 'use client';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from "@/utils/supabase/client";
 import { useRef, useState } from 'react';
 
 export default function SaatuButton({ id }: { id: string }) {
@@ -7,7 +7,7 @@ export default function SaatuButton({ id }: { id: string }) {
   const [index, setIndex] = useState(1); // Start from "Saatu_v1.mp3"
 
   const [isLiked, setLiked] = useState(false);
-  const supabase = createClientComponentClient();
+  const supabase = createClient();
 
   const handleClick = async () => {
     if (audioRef.current) {
