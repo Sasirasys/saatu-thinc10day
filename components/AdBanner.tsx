@@ -31,7 +31,7 @@ export default function AdBanner() {
         >
           ×
         </button>
-        <Link href={`/katha-list/4}`}>
+        <Link href={`/katha-list/4`}>
           <Image
             src="/Ad_Cancer.gif"
             alt="Advertisement"
