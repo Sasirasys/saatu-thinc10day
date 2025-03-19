@@ -1,10 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { createClient } from '@/utils/supabase/server';
-import Link from "next/link";
 import AdBanner from "@/components/AdBanner";
 import KathaItem from "@/components/KathaItem";
-import { Metadata } from "next";
 
 // Add proper type definitions
 interface PageProps {
