@@ -14,13 +14,13 @@ export default function PlaySoundButton({ id }: { id: string }) {
       className="mt-16 bg-[#FFDA60] translate-y-10 text-black text-4xl font-[Srisakdi] font-bold py-5 px-10 sm:px-20 rounded-4xl shadow-lg
       transition duration-400 hover:bg-yellow-500 whitespace-nowrap cursor-pointer hover:scale-105"
     >
-          <Image
-                src="/Speaker.png" // Path to your image in the public folder
-                alt="Speaker Icon"
-                width={40} // Adjust the width as needed
-                height={40} // Adjust the height as needed
-                className="object-contain" // Ensure the image scales properly
-            />
+      <Image
+        src="/speaker.png" // Path to your image in the public folder
+        alt="Speaker Icon"
+        width={40} // Adjust the width as needed
+        height={40} // Adjust the height as needed
+        className="object-contain" // Ensure the image scales properly
+      />
     </button>
   );
 }
