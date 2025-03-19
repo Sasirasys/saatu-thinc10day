@@ -28,14 +28,14 @@ export default function Home() {
   const numberOfStars = 30;
 
   const sideImages = [
-    { src: "/aries.png", alt: "Image 1" },
-    { src: "/cancer.png", alt: "Image 2" },
-    { src: "/gemini.png", alt: "Image 3" },
-    { src: "/leo.png", alt: "Image 4" },
-    { src: "/libra.png", alt: "Image 5" },
-    { src: "/scorpio.png", alt: "Image 6" },
-    { src: "/capricorn.png", alt: "Image 7" },
-    { src: "/pisces.png", alt: "Image 8" },
+    { src: "/aries.png" },
+    { src: "/cancer.png" },
+    { src: "/gemini.png" },
+    { src: "/leo.png" },
+    { src: "/libra.png" },
+    { src: "/scorpio.png" },
+    { src: "/capricorn.png" },
+    { src: "/pisces.png" },
   ];
 
   const manualPositions = [
@@ -114,7 +114,7 @@ export default function Home() {
             height: `${star.height}px`,
           }}
         >
-          <Image src="/Star_1.png" alt="Star" fill={true} className="object-contain" />
+          <Image src="/star_sharp.png" alt="" fill={true} className="object-contain" />
         </motion.div>
       ))}
 
@@ -146,7 +146,7 @@ export default function Home() {
             >
               <Image
                 src={image.src}
-                alt={image.alt}
+                alt=""
                 layout="fill"
                 objectFit="contain"
               />
@@ -181,7 +181,7 @@ export default function Home() {
 
         <div className="grid sm:hidden grid-cols-2 grid-rows-4 gap-4 w-full max-w-md mx-auto">
           {[
-            { src: "/education1.png", text: "กลุ่มดาวการศึกษา", tag: "การศึกษา" },
+            { src: "/education.png", text: "กลุ่มดาวการศึกษา", tag: "การศึกษา" },
             { src: "/love-new.png", text: "กลุ่มดาวความรัก", tag: "ความรัก" },
             { src: "/general.png", text: "กลุ่มดาวทั่วไป", tag: "ทั่วไป" },
             { src: "/health.png", text: "กลุ่มดาวสุขภาพ", tag: "สุขภาพ" },
@@ -216,7 +216,7 @@ export default function Home() {
 
         <motion.div
           className="absolute z-0 w-25 h-25 -translate-y-28 translate-x-70 group hidden sm:block"
-          onMouseEnter={() => setHoveredImage("/education1.png")}
+          onMouseEnter={() => setHoveredImage("/education.png")}
           onMouseLeave={() => setHoveredImage(null)}
           variants={iconVariants}
           initial="hidden"
@@ -232,7 +232,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/education1.png" alt="ed" fill={true} className="object-contain" />
+                <Image src="/education.png" alt="กลุ่มดาวการศึกษา" fill={true} className="object-contain" />
               </div>
 
               <div className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100">
@@ -262,7 +262,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/love-new.png" alt="love" fill={true} className="object-contain" />
+                <Image src="/love-new.png" alt="กลุ่มดาวความรัก" fill={true} className="object-contain" />
               </div>
               <motion.div className="absolute top-[85%] left-1/2 transform -translate-x-1/2 mt-2 text-white text-lg p-2 rounded shadow-lg cursor-pointer transition-all group-hover:scale-110 duration-300 max-w-max whitespace-nowrap ease-in-out opacity-0 group-hover:opacity-100 group-hover:delay-100">
                 กลุ่มดาวความรัก
@@ -289,7 +289,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/general.png" alt="general" fill={true} className="object-contain" />
+                <Image src="/general.png" alt="กลุ่มดาวทั่วไป" fill={true} className="object-contain" />
               </div>
 
               <motion.div
@@ -319,7 +319,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/health.png" alt="health" fill={true} className="object-contain" />
+                <Image src="/health.png" alt="กลุ่มดาวสุขภาพ" fill={true} className="object-contain" />
               </div>
 
               <motion.div
@@ -349,7 +349,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/luck.png" alt="luck" fill={true} className="object-contain" />
+                <Image src="/luck.png" alt="กลุ่มดาวโชคลาภ" fill={true} className="object-contain" />
               </div>
 
               <motion.div
@@ -379,7 +379,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/career.png" alt="career" fill={true} className="object-contain" />
+                <Image src="/career.png" alt="กลุ่มดาวอาชีพ" fill={true} className="object-contain" />
               </div>
 
               <motion.div
@@ -409,7 +409,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/family.png" alt="family" fill={true} className="object-contain" />
+                <Image src="/family.png" alt="กลุ่มดาวครอบครัว" fill={true} className="object-contain" />
               </div>
 
               <motion.div
@@ -439,7 +439,7 @@ export default function Home() {
           >
             <a className="block w-full h-full relative">
               <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
-                <Image src="/finance.png" alt="finance" fill={true} className="object-contain" />
+                <Image src="/finance.png" alt="กลุ่มดาวการเงิน" fill={true} className="object-contain" />
               </div>
 
               <motion.div
@@ -469,7 +469,7 @@ export default function Home() {
             <div className="relative w-40 h-40">
               <Image
                 src={hoveredImage}
-                alt="hovered-image"
+                alt=""
                 fill={true}
                 className="object-contain"
               />

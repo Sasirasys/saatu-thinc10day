@@ -117,8 +117,8 @@ export default function Home() {
               }}
             >
               <Image
-                src="/Star_1.png"
-                alt="Star"
+                src="/star_sharp.png"
+                alt=""
                 fill={true}
                 className="object-contain"
               />
@@ -143,7 +143,7 @@ export default function Home() {
             >
               <Image
                 src="/Saatu_Scroll1_WHITE.svg"
-                alt="Saatu Scroll Logo"
+                alt=""
                 fill={true}
                 className="object-contain"
               />
@@ -164,7 +164,7 @@ export default function Home() {
               >
                 <Image
                   src="/Saatu_Paper1_WHITE.svg"
-                  alt="Saatu Paper"
+                  alt=""
                   fill={true}
                   className="object-contain"
                 />
@@ -186,7 +186,7 @@ export default function Home() {
               >
                 <Image
                   src="/Saatu_Scroll1_WHITE.svg"
-                  alt="Saatu Scroll Logo 2"
+                  alt=""
                   fill={true}
                   className="absolute translate-y-[70%] object-contain"
                 />

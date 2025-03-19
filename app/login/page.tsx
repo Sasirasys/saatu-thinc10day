@@ -32,7 +32,7 @@ export default function Page() {
           <h1 className="text-3xl">User Profile</h1>
           <Image
             src={session.user?.image ?? "/user.png"}
-            alt="profile image"
+            alt="Profile image"
             width={100}
             height={100}
             referrerPolicy="no-referrer"
@@ -52,7 +52,7 @@ export default function Page() {
             </div>
           ) : (
             <div className="flex flex-col items-center text-xl">
-              <img src="/Star_1.png" alt="" className="size-14 animate-spin" />
+              <Image src="/star_sharp.png" width={512} height={512} alt="" className="size-14 animate-spin" />
               Loading...
             </div>
           )}

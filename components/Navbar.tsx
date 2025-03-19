@@ -20,8 +20,8 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 100 }}
             >
               <Image
-                src="/Star_1.png"
-                alt="Logo"
+                src="/star_sharp.png"
+                alt="Saatu Logo"
                 fill={true}
                 className="rounded-full group-hover object-contain"
               />

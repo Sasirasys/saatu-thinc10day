@@ -16,7 +16,7 @@ export default function PrayerSoundButton({ id }: { id: string }) {
     >
       <Image
         src="/speaker.png" // Path to your image in the public folder
-        alt="Speaker Icon"
+        alt="Speaker"
         width={40} // Adjust the width as needed
         height={40} // Adjust the height as needed
         className="object-contain size-[4vw]" // Ensure the image scales properly
