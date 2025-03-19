@@ -37,7 +37,7 @@ const ShootingStar = ({ delay, id }: { delay: number; id: number }) => {
         ease: [0.04, 1.11, 0.9, 0.85],
         repeat: Infinity,
         repeatDelay: 2,
-        delay: delay,
+        delay: delay + 3,
       }}
       className={`absolute w-5 h-5 drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)) ${id === 2 ? "-translate-y-20" : ""
         }`}
