@@ -62,7 +62,7 @@ export default async function KathaList({
           <KathaItem
             key={katha.katha_id}
             katha={katha}
-            myTag={myTag?.saved_katha_id}
+            myTag={myTag ? myTag.saved_katha_id : []}
             userEmail={userEmail ?? ""}
           />
         ))}
