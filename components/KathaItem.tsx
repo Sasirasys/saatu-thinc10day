@@ -98,12 +98,12 @@ export default function KathaItem({
           passHref
         >
           {" "}
-          {/* Dynamic route */}
+          {/* Dynamic route */} 
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
-            className="w-full py-1.5 bg-[#FFDA60] text-black text-lg cursor-pointer rounded-xl transition-transform"
+            className="w-full py-1.5 bg-[#FFDA60] hover:bg-yellow-500 text-black text-lg cursor-pointer rounded-xl transition-transform duration-400"
             aria-label={`เริ่มสวดมนต์บท${katha.name}`} // Accessibility
           >
             เริ่มสวดกันเลย !
