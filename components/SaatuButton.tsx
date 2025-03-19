@@ -32,7 +32,7 @@ export default function SaatuButton({ id }: { id: string }) {
     <>
       <button
         onClick={handleClick}
-        className="mt-16 bg-[#FFDA60] translate-y-10 text-black text-4xl font-[Srisakdi] font-bold py-5 px-10 sm:px-20 rounded-4xl shadow-lg
+        className="bg-[#FFDA60] text-black text-[3vw] font-[Srisakdi] font-bold py-[2vw] px-[6vw] rounded-4xl shadow-lg
         transition duration-400 hover:bg-yellow-500 whitespace-nowrap cursor-pointer hover:scale-105"
       >
         สาธุ ๙๙
