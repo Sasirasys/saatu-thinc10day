@@ -10,8 +10,32 @@ const itemVariants = {
 };
 
 const buttonVariants = {
-  hover: { scale: 1.05 },
-  tap: { scale: 0.95 },
+  hover: {
+    scale: 1.05,
+    boxShadow: "0px 4px 15px rgba(255, 218, 96, 0.4)",
+  },
+  tap: {
+    scale: 0.95,
+    boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
+  },
+};
+
+const toThaiNumber = (num: number): string => {
+  const thaiDigits: string[] = [
+    "๐",
+    "๑",
+    "๒",
+    "๓",
+    "๔",
+    "๕",
+    "๖",
+    "๗",
+    "๘",
+    "๙",
+  ];
+  return num
+    .toString()
+    .replace(/\d/g, (digit: string) => thaiDigits[parseInt(digit, 10)]);
 };
 
 export default function KathaItem({
@@ -38,7 +62,9 @@ export default function KathaItem({
         <h2 className="text-lg font-semibold text-gray-800">{katha.name}</h2>
         <ToggleHeart state={false} />
       </div>
-      <p className="text-sm font-bold text-[#3C278A]">ยอดสาธุ: ๙๙</p>
+      <p className="text-sm font-bold text-[#3C278A]">
+        ยอดสาธุ: {toThaiNumber(katha.saatu99)}
+      </p>
       <p className="text-sm text-gray-500 mt-1">
         {katha.description.replace(/\\n/g, "\n")}
       </p>
@@ -47,7 +73,7 @@ export default function KathaItem({
       <div className="flex flex-wrap gap-2 mt-2">
         {katha.tags.map((tag: string) => (
           <span
-            key={tag} // {index}
+            key={tag}
             className="bg-[#08113F] text-white px-1.5 py-1 rounded-full text-xs"
           >
             {tag}
