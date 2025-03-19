@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ScrollHandler from '@/components/ScrollHandler';
+import { useEffect, useState } from "react";
 
 const getRandomPosition = () => {
   const top = Math.random() * 100;
@@ -19,8 +20,72 @@ const getRandomSize = () => {
 
 const getRandomDelay = () => Math.random() * 2;
 
+const ShootingStar = ({ delay, id }: { delay: number; id: number }) => {
+  return (
+    <motion.div
+    initial={{ 
+      x: "100vw", 
+      y: id === 2 ? "-120vh" : "-100vh", // Higher start position for id 2
+      opacity: 0 
+    }}
+    animate={{ 
+      x: "-100vw", 
+      y: id === 2 ? "80vh" : "100vh", // Adjusting trajectory
+      opacity: 1
+    }}
+      transition={{
+        duration: 5,
+        ease: [0.04, 1.11, 0.9, 0.85],
+        repeat: Infinity,
+        repeatDelay: 2,
+        delay: delay,
+      }}
+      className={`absolute w-5 h-5 drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)) ${
+        id === 2 ? "-translate-y-20" : ""
+      }`}
+      style={{
+        background: "url('/star.png') no-repeat center center",
+        backgroundSize: "contain",
+      }}
+    >
+
+    <motion.div
+      transition={{
+        delay: 1.5,
+        duration: 2,
+        ease: "easeInOut",
+      }}
+      className="absolute w-70 h-1 bg-white blur-sm transform -rotate-30"
+      style={{
+        top: "50%",
+        left: "50%",
+        transformOrigin: "top left", // Ensure the trail rotates from the correct origin
+        translate: "0% -50%", // Move the trail behind the star
+        height: "6px",   // Head size
+        background: "linear-gradient(to left, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8))",
+          }}>
+
+    </motion.div>
+    </motion.div>
+
+    
+
+    
+  );
+};
+
 export default function Home() {
   const numberOfStars = 30;
+  const defaultShootingStars: {id: number, delay: number}[] = [];
+  const [shootingStars, setShootingStars] = useState(defaultShootingStars);
+
+  useEffect(() => {
+    // Add two shooting stars with different delays
+    setShootingStars([
+      { id: 1, delay: 0 },
+      { id: 2, delay: -0.1 },
+    ]);
+  }, []);
 
   return (
     <main>
@@ -62,6 +127,11 @@ export default function Home() {
             </motion.div>
           );
         })}
+
+        {shootingStars.map((star) => (
+          <ShootingStar key={star.id} delay={star.delay} />
+        ))}
+
         <div className="-translate-y-10">
         <div
           className=" border-amber-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
