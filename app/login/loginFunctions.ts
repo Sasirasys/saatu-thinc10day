@@ -8,12 +8,10 @@ export async function addUser(email: string, name: string) {
     .select()
     .eq("email", email)
     .single();
-  // console.log(user);
   if (user == null) {
-    const { error } = await supabase
+    await supabase
       .from("users")
       .insert({ email: email, fullname: name });
-    // console.log(error);
   }
 }
 
@@ -37,13 +35,13 @@ export async function getMyKatha(email: string | null | undefined) {
   const yesterday = date.toLocaleDateString("en-CA");
   if (yesterday == user.last_login) {
     // if last login yesterday, +1
-    const { data } = await supabase
+    await supabase
       .from("users")
       .update({ last_login: today, streak: user.streak + 1 })
       .eq("email", email);
   } else if (today != user.last_login) {
     // if last login not today and not yesterday, reset to 1
-    const { data } = await supabase
+    await supabase
       .from("users")
       .update({ last_login: today, streak: 1 })
       .eq("email", email);
@@ -53,11 +51,9 @@ export async function getMyKatha(email: string | null | undefined) {
 
 export async function updateSavedKatha(list: number[], userEmail: string) {
   const supabase = await createClient();
-  const { data, error } = await supabase
+  await supabase
     .from("users")
     .update({ saved_katha_id: list })
     .eq("email", userEmail)
     .select();
-  // console.log("input:", list);
-  // console.log(data, error);
 }

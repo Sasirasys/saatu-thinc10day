@@ -23,7 +23,7 @@ export default function SaatuButton({ id }: { id: string }) {
     if (!isLiked) {
       setLiked(true);
       const { data: katha_old } = await supabase.from('katha').select().eq('katha_id', id).single();
-      const { data } = await supabase.from('katha').update({ saatu99: katha_old.saatu99 + 1 }).eq('katha_id', id).select();
+      await supabase.from('katha').update({ saatu99: katha_old.saatu99 + 1 }).eq('katha_id', id).select();
     }
 
   };

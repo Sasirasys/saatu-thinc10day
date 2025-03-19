@@ -13,7 +13,18 @@ const buttonVariants = {
   tap: { scale: 0.95 },
 };
 
-export default function KathaItem({ katha }: { katha: any }) {
+export default function KathaItem({ katha }:
+  {
+    katha:
+    {
+      katha_id: number,
+      name: string,
+      prayer: string,
+      description: string,
+      saatu99: number,
+      tags: string[]
+    }
+  }) {
   return (
     <motion.div
       variants={itemVariants}
@@ -30,8 +41,8 @@ export default function KathaItem({ katha }: { katha: any }) {
 
       {/* Tags with improved spacing */}
       <div className="flex flex-wrap gap-2 mt-2">
-        {katha.tags.map((tag: string, index: number) => (
-          <span 
+        {katha.tags.map((tag: string) => (
+          <span
             key={tag} // {index}
             className="bg-[#08113F] text-white px-1.5 py-1 rounded-full text-xs"
           >

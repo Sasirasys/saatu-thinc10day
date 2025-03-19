@@ -1,6 +1,6 @@
 "use client";
-import { useSession, signIn, signOut } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 import Image from "next/image";
 import { addUser } from "./loginFunctions";
 import { GoogleSigninButton, GoogleSignoutButton } from "./GoogleButton";
