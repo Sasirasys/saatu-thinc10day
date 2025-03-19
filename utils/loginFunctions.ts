@@ -25,10 +25,11 @@ export async function getMyKatha(email: string | null | undefined) {
     .select()
     .eq("email", email)
     .single();
-  const { data: kathalist } = await supabase
+  const { data: kathalist, error } = await supabase
     .from("katha")
     .select()
     .in("katha_id", [user.saved_katha_id]);
+  console.log(error);
   const date = new Date();
   const today = date.toLocaleDateString("en-CA");
   date.setDate(date.getDate() - 1);

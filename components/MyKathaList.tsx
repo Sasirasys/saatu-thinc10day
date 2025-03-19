@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getMyKatha, updateSavedKatha } from "./loginFunctions";
+import { getMyKatha, updateSavedKatha } from "@/utils/loginFunctions";
 
 function MyKathaList({ email }: { email: string }) {
   const [kathaList, setKathaList] = useState<any[] | null | undefined>(null);

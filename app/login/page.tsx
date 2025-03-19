@@ -2,9 +2,9 @@
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Image from "next/image";
-import { addUser } from "./loginFunctions";
-import { GoogleSigninButton, GoogleSignoutButton } from "./GoogleButton";
-import MyKathaList from "./MyKathaList";
+import { addUser } from "@/utils/loginFunctions";
+import { GoogleSigninButton, GoogleSignoutButton } from "@/components/GoogleButton";
+import MyKathaList from "@/components/MyKathaList";
 
 export default function Page() {
   const { data: session, status } = useSession();
