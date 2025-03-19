@@ -33,7 +33,7 @@ export default function KathaItem({ katha }: { katha: any }) {
         {katha.tags.map((tag: string, index: number) => (
           <span 
             key={tag} // {index}
-            className="bg-[#08113F] text-white px-1 py-1 rounded-full text-xs"
+            className="bg-[#08113F] text-white px-1.5 py-1 rounded-full text-xs"
           >
             {tag}
           </span>
@@ -42,13 +42,13 @@ export default function KathaItem({ katha }: { katha: any }) {
 
       {/* Animated Button */}
       {/* Improved button with dynamic link */}
-      <div className="flex justify-center mt-4">
-        <Link href={`/katha/${katha.slug}`} passHref> {/* Dynamic route */}
+      <div className="w-full flex justify-center mt-4">
+        <Link href={`/katha-list/${katha.katha_id}`} className="w-full" passHref> {/* Dynamic route */}
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
-            className="px-36 py-1.5 bg-[#FFDA60] text-black text-lg cursor-pointer rounded-xl transition-transform"
+            className="w-full py-1.5 bg-[#FFDA60] text-black text-lg cursor-pointer rounded-xl transition-transform"
             aria-label={`เริ่มสวดมนต์บท${katha.name}`} // Accessibility
           >
             เริ่มสวดกันเลย !

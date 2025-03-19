@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AdBanner() {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,6 +22,7 @@ export default function AdBanner() {
   if (!isVisible) return null;
 
   return (
+  
     <div className="fixed bottom-0 left-0 right-0 p-4 shadow-lg flex justify-center items-center">
       <div className="relative">
         <button
@@ -29,14 +31,17 @@ export default function AdBanner() {
         >
           ×
         </button>
-        <Image
-          src="/Ad_Cancer.gif"
-          alt="Advertisement"
-          width={500}
-          height={150}
-          className="object-contain"
-        />
+        <Link href={`/katha-list/4`}>
+          <Image
+            src="/Ad_Cancer.gif"
+            alt="Advertisement"
+            width={500}
+            height={150}
+            className="object-contain"
+          />
+        </Link>
       </div>
     </div>
+    
   );
 }
