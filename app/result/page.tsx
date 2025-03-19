@@ -1,8 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from "@/utils/supabase/server";
 import AdBanner from "@/components/AdBanner";
 import KathaItem from "@/components/KathaItem";
+import { cookies } from "next/headers";
 
 // Add proper type definitions
 interface PageProps {
@@ -14,22 +15,30 @@ interface PageProps {
 export default async function KathaList({ searchParams }: PageProps) {
   const supabase = await createClient();
   const tag = (await searchParams)?.tag || "ทั่วไป";
+  const cookieStore = await cookies();
+  const userEmail = cookieStore.get("prevEmail")?.value;
+
+  const { data: myTag } = await supabase
+    .from("users")
+    .select("saved_katha_id")
+    .eq("email", userEmail)
+    .single();
 
   const { data: kathalist } = await supabase
     .from("katha")
     .select()
-    .contains("tags", [tag])
+    .contains("tags", [tag]);
 
   // Map tag to appropriate image
   const tagImages: { [key: string]: string } = {
-    "การศึกษา": "/education.png",
-    "ความรัก": "/love-new.png",
-    "ทั่วไป": "/general.png",
-    "สุขภาพ": "/health.png",
-    "โชคลาภ": "/luck.png",
-    "อาชีพ": "/career.png",
-    "ครอบครัว": "/family.png",
-    "การเงิน": "/finance.png"
+    การศึกษา: "/education.png",
+    ความรัก: "/love-new.png",
+    ทั่วไป: "/general.png",
+    สุขภาพ: "/health.png",
+    โชคลาภ: "/luck.png",
+    อาชีพ: "/career.png",
+    ครอบครัว: "/family.png",
+    การเงิน: "/finance.png",
   };
   //return <pre>{JSON.stringify(kathalist, null, 2)}</pre>
 
@@ -47,13 +56,16 @@ export default async function KathaList({ searchParams }: PageProps) {
             height={80}
             className="object-contain"
           />
-          <p className="text-lg text-center font-medium">
-            คาถาด้าน{' '}{tag}
-          </p>
+          <p className="text-lg text-center font-medium">คาถาด้าน {tag}</p>
         </div>
 
         {kathalist?.map((katha) => (
-          <KathaItem key={katha.katha_id} katha={katha} />
+          <KathaItem
+            key={katha.katha_id}
+            katha={katha}
+            myTag={myTag?.saved_katha_id}
+            userEmail={userEmail ?? ""}
+          />
         ))}
       </div>
 

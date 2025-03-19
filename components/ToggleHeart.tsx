@@ -1,19 +1,30 @@
+import { addSavedKatha, removeSavedKatha } from "@/utils/loginFunctions";
 import React, { useEffect, useState } from "react";
 
-const ToggleHeart = ({ state = false }: { state: boolean }) => {
+const ToggleHeart = ({
+  state = false,
+  id,
+  email,
+}: {
+  state: boolean;
+  id: number;
+  email: string;
+}) => {
   const [isLiked, setIsLiked] = useState(state);
   const [enable, setEnable] = useState(false); // reduce useEffect triggr
   const toggleLike = () => {
     setIsLiked(!isLiked);
+    if (!enable) {
+      setEnable(true);
+    }
   };
   useEffect(() => {
-    if (isLiked) {
-      console.log("liked");
-      if (!enable) {
-        setEnable(true);
-      }
+    if (isLiked && enable) {
+      //   console.log("liked");
+      addSavedKatha(id, email);
     } else if (!isLiked && enable) {
-      console.log("unliked");
+      //   console.log("unliked");
+      removeSavedKatha(id, email);
     }
   }, [isLiked]);
   return (

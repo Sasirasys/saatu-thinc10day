@@ -9,9 +9,7 @@ export async function addUser(email: string, name: string) {
     .eq("email", email)
     .single();
   if (user == null) {
-    await supabase
-      .from("users")
-      .insert({ email: email, fullname: name });
+    await supabase.from("users").insert({ email: email, fullname: name });
   }
 }
 
@@ -55,6 +53,42 @@ export async function updateSavedKatha(list: number[], userEmail: string) {
   await supabase
     .from("users")
     .update({ saved_katha_id: list })
+    .eq("email", userEmail)
+    .select();
+}
+
+export async function addSavedKatha(id: number, userEmail: string) {
+  const supabase = await createClient();
+  const { data: myTag } = await supabase
+    .from("users")
+    .select("saved_katha_id")
+    .eq("email", userEmail)
+    .single();
+  let temp: number[] = myTag?.saved_katha_id;
+  temp.push(id);
+  let s = new Set(temp);
+  // console.log(...s);
+  await supabase
+    .from("users")
+    .update({ saved_katha_id: [...s] })
+    .eq("email", userEmail)
+    .select();
+}
+
+export async function removeSavedKatha(id: number, userEmail: string) {
+  const supabase = await createClient();
+  const { data: myTag } = await supabase
+    .from("users")
+    .select("saved_katha_id")
+    .eq("email", userEmail)
+    .single();
+  let temp: number[] = myTag?.saved_katha_id.filter(
+    (data: number) => data != id
+  );
+  // console.log(temp);
+  await supabase
+    .from("users")
+    .update({ saved_katha_id: temp })
     .eq("email", userEmail)
     .select();
 }
