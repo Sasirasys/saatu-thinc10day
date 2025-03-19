@@ -25,12 +25,12 @@ const ShootingStar = ({ delay, id }: { delay: number; id: number }) => {
     <motion.div
     initial={{ 
       x: "100vw", 
-      y: id === 2 ? "-120vh" : "-100vh", // Higher start position for id 2
+      y: id === 2 ? "-90vh" : "-100vh", // Higher start position for id 2
       opacity: 0 
     }}
     animate={{ 
       x: "-100vw", 
-      y: id === 2 ? "80vh" : "100vh", // Adjusting trajectory
+      y: id === 2 ? "100vh" : "100vh", // Adjusting trajectory
       opacity: 1
     }}
       transition={{
@@ -129,7 +129,7 @@ export default function Home() {
         })}
 
         {shootingStars.map((star) => (
-          <ShootingStar key={star.id} delay={star.delay} />
+          <ShootingStar key={star.id} id={star.id} delay={star.delay} />
         ))}
 
         <div className="-translate-y-10">
