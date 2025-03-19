@@ -13,7 +13,7 @@ interface PageProps {
 
 export default async function KathaList({ searchParams }: PageProps) {
   const supabase = await createClient();
-  const tag = searchParams?.tag || "ทั่วไป";
+  const tag = (await searchParams)?.tag || "ทั่วไป";
 
   const { data: kathalist } = await supabase
     .from("katha")
