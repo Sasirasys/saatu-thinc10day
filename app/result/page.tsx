@@ -4,14 +4,13 @@ import { createClient } from '@/utils/supabase/server';
 import AdBanner from "@/components/AdBanner";
 import KathaItem from "@/components/KathaItem";
 
-// Add proper type definitions
-interface PageProps {
-  searchParams?: {
-    tag?: string;
-  };
-}
 
-export default async function KathaList({ searchParams }: PageProps) {
+export default async function KathaList({
+  searchParams
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>
+}) {
+
   const supabase = await createClient();
   const tag = (await searchParams)?.tag || "ทั่วไป";
 
