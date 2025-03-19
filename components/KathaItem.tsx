@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import ToggleHeart from "./ToggleHeart";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -13,18 +14,18 @@ const buttonVariants = {
   tap: { scale: 0.95 },
 };
 
-export default function KathaItem({ katha }:
-  {
-    katha:
-    {
-      katha_id: number,
-      name: string,
-      prayer: string,
-      description: string,
-      saatu99: number,
-      tags: string[]
-    }
-  }) {
+export default function KathaItem({
+  katha,
+}: {
+  katha: {
+    katha_id: number;
+    name: string;
+    prayer: string;
+    description: string;
+    saatu99: number;
+    tags: string[];
+  };
+}) {
   return (
     <motion.div
       variants={itemVariants}
@@ -33,10 +34,13 @@ export default function KathaItem({ katha }:
       exit="hidden"
       className="w-full max-w-md bg-white shadow-lg rounded-xl p-4 border border-gray-200"
     >
-      <h2 className="text-lg font-semibold text-gray-800">{katha.name}</h2>
+      <div className="flex justify-between items-start">
+        <h2 className="text-lg font-semibold text-gray-800">{katha.name}</h2>
+        <ToggleHeart state={false} />
+      </div>
       <p className="text-sm font-bold text-[#3C278A]">ยอดสาธุ: ๙๙</p>
       <p className="text-sm text-gray-500 mt-1">
-        {katha.description}
+        {katha.description.replace(/\\n/g, "\n")}
       </p>
 
       {/* Tags with improved spacing */}
@@ -53,8 +57,14 @@ export default function KathaItem({ katha }:
 
       {/* Animated Button */}
       {/* Improved button with dynamic link */}
-      <div className="w-full flex justify-center mt-4">
-        <Link href={`/katha-list/${katha.katha_id}`} className="w-full" passHref> {/* Dynamic route */}
+      <div className="w-full flex justify-center mt-3">
+        <Link
+          href={`/katha-list/${katha.katha_id}`}
+          className="w-full"
+          passHref
+        >
+          {" "}
+          {/* Dynamic route */}
           <motion.button
             variants={buttonVariants}
             whileHover="hover"
