@@ -189,31 +189,36 @@ export default function Home() {
 
       <div className="grid sm:hidden grid-cols-2 grid-rows-4 gap-4 w-full max-w-md mx-auto">
         {[
-          { src: "/education1.png", text: "กลุ่มดาวการศึกษา" },
-          { src: "/love-new.png", text: "กลุ่มดาวความรัก" },
-          { src: "/general.png", text: "กลุ่มดาวทั่วไป" },
-          { src: "/health.png", text: "กลุ่มดาวสุขภาพ" },
-          { src: "/luck.png", text: "กลุ่มดาวโชคลาภ" },
-          { src: "/career.png", text: "กลุ่มดาวอาชีพ" },
-          { src: "/family.png", text: "กลุ่มดาวครอบครัว" },
-          { src: "/finance.png", text: "กลุ่มดาวการเงิน" },
+          { src: "/education1.png", text: "กลุ่มดาวการศึกษา", tag: "การศึกษา" },
+          { src: "/love-new.png", text: "กลุ่มดาวความรัก", tag: "ความรัก" },
+          { src: "/general.png", text: "กลุ่มดาวทั่วไป", tag: "ทั่วไป" },
+          { src: "/health.png", text: "กลุ่มดาวสุขภาพ", tag: "สุขภาพ" },
+          { src: "/luck.png", text: "กลุ่มดาวโชคลาภ", tag: "โชคลาภ" },
+          { src: "/career.png", text: "กลุ่มดาวอาชีพ", tag: "อาชีพ" },
+          { src: "/family.png", text: "กลุ่มดาวครอบครัว", tag: "ครอบครัว" },
+          { src: "/finance.png", text: "กลุ่มดาวการเงิน", tag: "การเงิน" },
         ].map((item, index) => (
-          <div
+          <Link
             key={index}
-            className="flex flex-col items-center justify-center p-2 "
+            href={{
+              pathname: "/result",
+              query: { tag: item.tag },
+            }}
+            passHref
+            legacyBehavior
           >
-            <div className="relative w-20 h-20">
-              <Image
-                src={item.src}
-                alt={item.text}
-                fill={true}
-                className="object-contain"
-              />
-            </div>
-            <div className="mt-2 text-white text-lg text-center">
-              {item.text}
-            </div>
-          </div>
+            <a className="flex flex-col items-center justify-center p-2">
+              <div className="relative w-20 h-20">
+                <Image
+                  src={item.src}
+                  alt={item.text}
+                  fill={true}
+                  className="object-contain"
+                />
+              </div>
+              <div className="mt-2 text-white text-lg text-center">{item.text}</div>
+            </a>
+          </Link>
         ))}
       </div>
 
@@ -283,6 +288,14 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 0.5, delay: 0.3 }} // Adjust delay for staggering
       >
+        <Link href={{
+          pathname: "/result",
+          query: { tag: "ทั่วไป" }
+        }}
+        passHref
+        legacyBehavior
+        >
+          <a className="block w-full h-full relative">
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
           <Image src="/general.png" alt="general" fill={true} className="object-contain" />
         </div>
@@ -292,6 +305,8 @@ export default function Home() {
         >
           กลุ่มดาวทั่วไป
         </motion.div>
+        </a>
+      </Link>
       </motion.div>
 
       <motion.div
@@ -303,6 +318,14 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 0.5, delay: 0.4 }} // Adjust delay for staggering
       >
+      <Link href={{
+          pathname: "/result",
+          query: { tag: "สุขภาพ" }
+        }}
+        passHref
+        legacyBehavior
+        >
+          <a className="block w-full h-full relative">
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
           <Image src="/health.png" alt="health" fill={true} className="object-contain" />
         </div>
@@ -312,6 +335,8 @@ export default function Home() {
         >
           กลุ่มดาวสุขภาพ
         </motion.div>
+        </a>
+      </Link>
       </motion.div>
 
       <motion.div
@@ -323,6 +348,14 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 0.5, delay: 0.5 }} // Adjust delay for staggering
       >
+      <Link href={{
+          pathname: "/result",
+          query: { tag: "โชคลาภ" }
+        }}
+        passHref
+        legacyBehavior
+        >
+          <a className="block w-full h-full relative">
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
           <Image src="/luck.png" alt="luck" fill={true} className="object-contain" />
         </div>
@@ -332,6 +365,8 @@ export default function Home() {
         >
           กลุ่มดาวโชคลาภ
         </motion.div>
+      </a>
+      </Link>
       </motion.div>
 
       <motion.div
@@ -343,6 +378,14 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 0.5, delay: 0.6 }} // Adjust delay for staggering
       >
+      <Link href={{
+          pathname: "/result",
+          query: { tag: "อาชีพ" }
+        }}
+        passHref
+        legacyBehavior
+        >
+          <a className="block w-full h-full relative">
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
           <Image src="/career.png" alt="career" fill={true} className="object-contain" />
         </div>
@@ -352,6 +395,8 @@ export default function Home() {
         >
           กลุ่มดาวอาชีพ
         </motion.div>
+      </a>
+      </Link>
       </motion.div>
 
       <motion.div
@@ -363,6 +408,14 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 0.5, delay: 0.7 }} // Adjust delay for staggering
       >
+      <Link href={{
+          pathname: "/result",
+          query: { tag: "ครอบครัว" }
+        }}
+        passHref
+        legacyBehavior
+        >
+          <a className="block w-full h-full relative">
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
           <Image src="/family.png" alt="family" fill={true} className="object-contain" />
         </div>
@@ -372,6 +425,8 @@ export default function Home() {
         >
           กลุ่มดาวครอบครัว
         </motion.div>
+      </a>
+      </Link>
       </motion.div>
 
       <motion.div
@@ -383,6 +438,14 @@ export default function Home() {
         animate="visible"
         transition={{ duration: 0.5, delay: 0.8 }} // Adjust delay for staggering
       >
+      <Link href={{
+          pathname: "/result",
+          query: { tag: "การเงิน" }
+        }}
+        passHref
+        legacyBehavior
+        >
+          <a className="block w-full h-full relative">
         <div className="relative w-full h-full opacity-50 transition-all duration-300 ease-in-out cursor-pointer group-hover:opacity-100 group-hover:scale-110">
           <Image src="/finance.png" alt="finance" fill={true} className="object-contain" />
         </div>
@@ -392,6 +455,8 @@ export default function Home() {
         >
           กลุ่มดาวการเงิน
         </motion.div>
+      </a>
+      </Link>
       </motion.div>
 
       </div>
