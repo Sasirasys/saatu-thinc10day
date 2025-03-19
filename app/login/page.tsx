@@ -3,7 +3,10 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import Image from "next/image";
 import { addUser } from "@/utils/loginFunctions";
-import { GoogleSigninButton, GoogleSignoutButton } from "@/components/GoogleButton";
+import {
+  GoogleSigninButton,
+  GoogleSignoutButton,
+} from "@/components/GoogleButton";
 import MyKathaList from "@/components/MyKathaList";
 
 export default function Page() {
@@ -52,7 +55,13 @@ export default function Page() {
             </div>
           ) : (
             <div className="flex flex-col items-center text-xl">
-              <Image src="/star_sharp.png" width={512} height={512} alt="" className="size-14 animate-spin" />
+              <Image
+                src="/star_sharp.png"
+                width={512}
+                height={512}
+                alt=""
+                className="size-14 animate-spin"
+              />
               Loading...
             </div>
           )}
