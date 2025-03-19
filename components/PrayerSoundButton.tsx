@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function PlaySoundButton({ id }: { id: string }) {
+export default function PrayerSoundButton({ id }: { id: string }) {
   const handlePlaySound = () => {
     const audio = new Audio(`/voices/voice_${id}.mp3`);
     audio.play();

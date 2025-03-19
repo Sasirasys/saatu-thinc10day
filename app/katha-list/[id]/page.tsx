@@ -1,7 +1,7 @@
 import { createClient } from '@/utils/supabase/server';
-import AudioPlayer from '@/components/AudioPlayer';
+import SaatuButton from '@/components/SaatuButton';
 import ScrollHandler from '@/components/ScrollHandler';
-import PlaySoundButton from '@/components/PlaySoundButton'; // Import the new client component
+import PrayerSoundButton from '@/components/PrayerSoundButton'; // Import the new client component
 
 export default async function Page({
   params,
@@ -28,14 +28,14 @@ export default async function Page({
 
           {/* AudioPlayer component */}
           <div className="flex flex-row items-center gap-10">
-            <PlaySoundButton id={id} />
-            <AudioPlayer />
-        </div>
-          
+            <PrayerSoundButton id={id} />
+            <SaatuButton id={id} />
+          </div>
+
 
           {/* Add katha.description below the AudioPlayer */}
           <div className="text-5xl translate-y-20 text-center leading-20 text-black font-[Srisakdi] mt-5">
-            {katha.description}
+            {katha.description.replace(/\\n/g, '\n')}
           </div>
 
 
