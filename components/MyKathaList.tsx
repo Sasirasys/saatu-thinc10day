@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import { getMyKatha, updateSavedKatha } from "@/utils/loginFunctions";
 
 function MyKathaList({ email }: { email: string }) {
-  const [kathaList, setKathaList] = useState<any[] | null | undefined>(null);
+  const [kathaList, setKathaList] = useState<{
+    katha_id: number,
+    name: string,
+    prayer: string,
+    description: string,
+    saatu99: number,
+    tags: string[]
+  }[] | null | undefined>(null);
   const [streak, setStreak] = useState<string | null>(null);
 
   function unFav(id: number) {
     setKathaList(kathaList?.filter((katha) => katha.katha_id !== id));
-    // console.log("updated", kathaList);
   }
   function thaiNumber(num: number) {
     const array = ["๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"];
