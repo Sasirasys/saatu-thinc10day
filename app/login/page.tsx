@@ -1,6 +1,7 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { addUser } from "./loginFunctions";
 import { GoogleSigninButton, GoogleSignoutButton } from "./GoogleButton";
 import MyKathaList from "./MyKathaList";
@@ -29,9 +30,11 @@ export default function Page() {
       {status == "authenticated" ? (
         <div className="flex flex-col items-center">
           <h1 className="text-3xl">User Profile</h1>
-          <img
+          <Image
             src={session.user?.image ?? "/user.png"}
             alt="profile image"
+            width={100}
+            height={100}
             referrerPolicy="no-referrer"
             className="my-4 rounded-full size-24"
           />

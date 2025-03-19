@@ -47,8 +47,10 @@ export default function Navbar() {
         {/* Profile Icon (Clickable → /login) */}
         <div className="absolute right-6 w-10 h-10">
           <Link href="/login">
-            <img
+            <Image
               src={session?.user?.image ?? "/user.png"}
+              width={100}
+              height={100}
               alt="User Profile"
               referrerPolicy="no-referrer"
               className="rounded-full cursor-pointer hover:opacity-80 transition duration-300"
