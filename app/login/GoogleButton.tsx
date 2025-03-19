@@ -9,7 +9,7 @@ export const GoogleSignoutButton = () => {
     flex flex-row gap-2 focus:bg-gray-300"
       onClick={() => signOut()}
     >
-      <Image src="/login/G-logo.png" width={768} height={768} className="w-[25px] h-[25px]" alt="" />
+      <Image src="/Google-logo.png" width={768} height={768} className="w-[25px] h-[25px]" alt="" />
       Sign out
     </button>
   );
@@ -22,7 +22,7 @@ export const GoogleSigninButton = () => {
     flex flex-row gap-2 focus:bg-gray-300"
       onClick={() => signIn("google")}
     >
-      <Image src="/login/G-logo.png" width={768} height={768} className="w-[25px] h-[25px]" alt="" />
+      <Image src="/Google-logo.png" width={768} height={768} className="w-[25px] h-[25px]" alt="" />
       Sign in with Google
     </button>
   );
