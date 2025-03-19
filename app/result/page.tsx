@@ -5,14 +5,13 @@ import AdBanner from "@/components/AdBanner";
 import KathaItem from "@/components/KathaItem";
 import { cookies } from "next/headers";
 
-// Add proper type definitions
-interface PageProps {
-  searchParams?: {
-    tag?: string;
-  };
-}
 
-export default async function KathaList({ searchParams }: PageProps) {
+export default async function KathaList({
+  searchParams
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>
+}) {
+
   const supabase = await createClient();
   const tag = (await searchParams)?.tag || "ทั่วไป";
   const cookieStore = await cookies();
