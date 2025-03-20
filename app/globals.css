@@ -10,14 +10,7 @@ body {
   padding: 0;
   min-height: 100vh;
   position: relative;
-  background-color: radial-gradient(
-    circle,
-    #000000,
-    #110008,
-    #180015,
-    #190120,
-    #10062e
-  );
+  background-color: #000000;
   background-image: radial-gradient(
     circle,
     #0a0414,
