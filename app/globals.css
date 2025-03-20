@@ -10,12 +10,14 @@ body {
   padding: 0;
   min-height: 100vh;
   position: relative;
-  background-image: radial-gradient(circle,
-      #0a0414,
-      #120624,
-      #120a34,
-      #0f0b45,
-      #0a0a57);
+  background-image: radial-gradient(
+    circle,
+    #0a0414,
+    #120624,
+    #120a34,
+    #0f0b45,
+    #0a0a57
+  );
   white-space: pre-line;
 }
 
@@ -34,27 +36,31 @@ body::after {
 }
 
 body::before {
-  background-image: radial-gradient(circle,
-      #040d1c,
-      #0a1129,
-      #131234,
-      #24103d,
-      #370641);
+  background-color: #000000;
+  background-image: radial-gradient(
+    circle,
+    #040d1c,
+    #0a1129,
+    #131234,
+    #24103d,
+    #370641
+  );
 }
 
 body::after {
-  background-image: radial-gradient(circle,
-      #000000,
-      #110008,
-      #180015,
-      #190120,
-      #10062e);
+  background-image: radial-gradient(
+    circle,
+    #000000,
+    #110008,
+    #180015,
+    #190120,
+    #10062e
+  );
   opacity: 0;
   /* Start with the second gradient hidden */
 }
 
 @keyframes gradientTransition {
-
   0%,
   100% {
     opacity: 0;
@@ -68,7 +74,6 @@ body::after {
 }
 
 @layer utilities {
-
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
